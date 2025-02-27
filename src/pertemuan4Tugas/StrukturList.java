@@ -1,7 +1,6 @@
-package pertemuan3;
+package pertemuan4Tugas;
 
 public class StrukturList {
-	//int data;
 	Node HEAD;
 	
 	public boolean isEmpty() {
@@ -13,7 +12,7 @@ public class StrukturList {
 		}
 	}
 	
-	public void addTail(int data) {
+	public void addTail(double data) {
 		Node posNode=null, curNode=null;
 		
 		Node newNode = new Node(data);
@@ -31,7 +30,7 @@ public class StrukturList {
 	}
 	
 	
-	public void addHead (int data) {
+	public void addHead (double data) {
 		Node newNode = new Node(data);
 		if(isEmpty()) {
 			HEAD = newNode;
@@ -42,6 +41,33 @@ public class StrukturList {
 		}
 	}
 	
+	
+	public void addMid(double data, int position) {
+		Node posNode=null, curNode=null;
+		int i;
+		
+		Node newNode = new Node(data);
+		if(isEmpty()) {
+			HEAD = newNode;
+		}
+		else {
+			curNode = HEAD;
+			if (position == 1) {
+				newNode.setNext(curNode);
+				HEAD = newNode;
+			}
+			else {
+				i = 1;
+				while(curNode != null && i < position) {
+					posNode = curNode;
+					curNode = curNode.getNext();
+					i++;
+				}
+				posNode.setNext(newNode);
+				newNode.setNext(curNode);
+			}
+		}
+	}
 	
 	public void displayElement() {
 		Node curNode = HEAD;
